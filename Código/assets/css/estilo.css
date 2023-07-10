@@ -1,0 +1,41 @@
+/*index*/
+.home{
+    background-image: url(../../media/ASILOE.webp);
+    background-size: cover;
+    height:600px;
+    padding-top: 200px;
+}
+.head{
+    position: fixed;
+    z-index: 100; 
+    width: 100%;
+}
+.navbar{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.image{
+    width:60px;
+    height: auto;
+}
+.caja{
+    background-color: rgba(209, 209, 209); 
+    width: 90%;  
+    margin: 0 auto;
+}
+.foto{
+    width: auto;
+    height: auto;
+}
+/*form*/
+.hom{
+    background-image: url(../../media/ASILOE.webp);
+    background-repeat: no-repeat;
+}
+.form-signin {
+    max-width: 450px;
+    padding: 15px;
+}
+.form-reg {
+    max-width: 450px;
+    padding: 15px;
+}
