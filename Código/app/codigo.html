@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <title>Información Personal del Adulto Mayor</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center">Información Personal del Adulto Mayor</h1>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Nombre:</h5>
+            <p id="nombre" class="card-text">Juan Pérez</p>
+            <input type="text" id="nombreInput" class="form-control" style="display: none;">
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Fecha de Nacimiento:</h5>
+            <p id="fechaNacimiento" class="card-text">10 de enero de 1950</p>
+            <input type="text" id="fechaNacimientoInput" class="form-control" style="display: none;">
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Dirección:</h5>
+            <p id="direccion" class="card-text">Calle Principal, Ciudad, País</p>
+            <input type="text" id="direccionInput" class="form-control" style="display: none;">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Teléfono:</h5>
+            <p id="telefono" class="card-text">+1234567890</p>
+            <input type="text" id="telefonoInput" class="form-control" style="display: none;">
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Correo Electrónico:</h5>
+            <p id="correo" class="card-text">juan@example.com</p>
+            <input type="text" id="correoInput" class="form-control" style="display: none;">
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Género:</h5>
+            <p id="genero" class="card-text">Masculino</p>
+            <select id="generoInput" class="form-select" style="display: none;">
+              <option value="Masculino">Masculino</option>
+              <option value="Femenino">Femenino</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button id="editarBtn" class="btn btn-primary">Editar</button>
+      <button id="guardarBtn" class="btn btn-success" style="display: none;">Guardar</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const editarBtn = document.getElementById('editarBtn');
+    const guardarBtn = document.getElementById('guardarBtn');
+
+    editarBtn.addEventListener('click', () => {
+      editarBtn.style.display = 'none';
+      guardarBtn.style.display = 'block';
+
+      // Mostrar campos de entrada y ocultar elementos de texto
+      document.querySelectorAll('.card-text').forEach((element) => {
+        element.style.display = 'none';
+      });
+
+      document.querySelectorAll('input, select').forEach((element) => {
+        element.style.display = 'block';
+        element.value = element.previousElementSibling.textContent;
+      });
+    });
+
+    guardarBtn.addEventListener('click', () => {
+      guardarBtn.style.display = 'none';
+      editarBtn.style.display = 'block';
+
+      // Mostrar elementos de texto y ocultar campos de entrada
+      document.querySelectorAll('.card-text').forEach((element) => {
+        element.style.display = 'block';
+        element.textContent = element.nextElementSibling.value;
+      });
+
+      document.querySelectorAll('input, select').forEach((element) => {
+        element.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>
